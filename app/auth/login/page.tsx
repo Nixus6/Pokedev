@@ -1,5 +1,5 @@
 'use client'
-import Card from '@/components/ui/Card'
+import Card from '@/components/ui/organisms/Card/Card'
 import Footer from '@/components/ui/Footer'
 import Header from '@/components/ui/Header'
 import InputLogin from '@/components/ui/InputLogin'
