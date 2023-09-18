@@ -1,6 +1,11 @@
 import { useState } from 'react';
-
-const usePagination = () => {
+import  { FC } from 'react'
+import { InfiniteData } from '@tanstack/react-query';
+import PokemonList from '@/lib/types';
+// interface Props {
+//     list: InfiniteData<PokemonList>;
+// }
+const usePagination=() => {
     const [currentPage, setCurrentPage] = useState(0);
 
     const handleNextPage = (nextPage: number) => {
@@ -9,13 +14,11 @@ const usePagination = () => {
         }, 1000);
     }
 
-    const previousPage = (prevPage: number) => {
-        setTimeout(() => {
+    const handlePreviousPage = (prevPage: number) => {
             setCurrentPage((prevPage) => prevPage - 1);
-        }, 1000);
     }
 
-    return { currentPage, handleNextPage, previousPage };
+    return { currentPage, handleNextPage, handlePreviousPage };
 };
 
 export default usePagination;

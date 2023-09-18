@@ -15,10 +15,11 @@ interface Props {
   hasNextPage: boolean | undefined;
   fetchNextPage: (options?: FetchNextPageOptions | undefined) => Promise<InfiniteQueryObserverResult<PokemonList, unknown>>;
   handleNextPage: (page: number) => void;
+  handlePreviousPage: (page: number) => void;
   currentPage: number;
 }
 
-const HomePage: FC<Props> = ({ pokemonList, hasNextPage, fetchNextPage, currentPage, handleNextPage }): JSX.Element => {
+const HomePage: FC<Props> = ({ pokemonList, hasNextPage, fetchNextPage, currentPage, handleNextPage, handlePreviousPage }): JSX.Element => {
   return (
     <TemplateHomeIn >
       <AnimatedText text={'¡Bienvenido a Pokedev!'} className='mb-16 lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8' />
@@ -31,7 +32,7 @@ const HomePage: FC<Props> = ({ pokemonList, hasNextPage, fetchNextPage, currentP
         linkPathKey={LINK_PATH_KEY}
         currentPage={currentPage}
       />
-      <Pagination hasNextPage={hasNextPage} fetchNextPage={fetchNextPage} handleNextPage={handleNextPage} currentPage={currentPage}/>
+      <Pagination hasNextPage={hasNextPage} fetchNextPage={fetchNextPage} handleNextPage={handleNextPage} currentPage={currentPage} handlePreviousPage={handlePreviousPage}/>
     </TemplateHomeIn>
   );
 };
