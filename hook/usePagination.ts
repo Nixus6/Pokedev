@@ -1,17 +1,21 @@
-import {  useState } from 'react';
+import { useState } from 'react';
 
 const usePagination = () => {
     const [currentPage, setCurrentPage] = useState(0);
 
     const handleNextPage = (nextPage: number) => {
-        setCurrentPage((nextPage) => nextPage + 1);
+        setTimeout(() => {
+            setCurrentPage((nextPage) => nextPage + 1);
+        }, 1000);
     }
 
     const previousPage = (prevPage: number) => {
-        setCurrentPage((prevPage) => prevPage -1);
+        setTimeout(() => {
+            setCurrentPage((prevPage) => prevPage - 1);
+        }, 1000);
     }
 
-    return {  currentPage, handleNextPage, previousPage };
+    return { currentPage, handleNextPage, previousPage };
 };
 
 export default usePagination;

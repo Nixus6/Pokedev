@@ -1,4 +1,4 @@
-import ApiGetPokemonList from "@/core/Api/ApiHomeIn/ApiGetPokemonList";
+// import ApiGetPokemonList from "@/core/Api/ApiHomeIn/ApiGetPokemonList";
 import PokemonList, { Result } from "@/lib/types";
 import mapListResults from "@/utils/mapPokemonForPage";
 import api from "./pokemon";
