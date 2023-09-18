@@ -4,47 +4,49 @@ import PokemonList, { GenericItem } from '@/lib/types';
 import styled from 'styled-components';
 import Card from '../Card/Card';
 import tw from 'twin.macro';
+import usePagination from '@/hook/usePagination';
+
 interface Props {
     list: InfiniteData<PokemonList>;
     titleKey: keyof GenericItem;
     imgSrcKey: keyof GenericItem;
     imgAltKey: keyof GenericItem;
     linkPathKey: keyof GenericItem;
+    currentPage: number;
 }
 
-const GridContainer = styled.div(tw`flex w-full grid-cols-3 gap-6 justify-center p-0.5`);
-// ('div', {
-//     width: '$w100',
-//     display: 'grid',
-//     gridTemplateColumns: `repeat(auto-fit, minmax($cardWidthBp1, $cardWidthBp3))`,
-//     gap: '$6',
-//     justifyItems: 'center',
-//     justifyContent: 'center',
-//     padding: '0 $4',
-//   })
-  ;
+const GridContainer = styled.div(
+    tw`w-full grid grid-cols-3 gap-8 justify-center px-4`
+);
 
-const ItemList = ({
-    // list,
-    // imgSrcKey,
-    // titleKey,
-    // imgAltKey,
-    // linkPathKey,
+const ItemList: FC<Props> = ({
+    list,
+    imgSrcKey,
+    titleKey,
+    imgAltKey,
+    linkPathKey,
+    currentPage
 }) => {
+    // const { currentPage } = usePagination();
+    console.log("list:::: ", list)
+    console.log("currentPage:::: ", currentPage)
     return (
         <GridContainer>
-            {/* {list.pages.map((page) =>
-                (page.results as GenericItem[]).map((item) => ( */}
+            {
+                // list.pages.map((page) =>
+                (list.pages[currentPage].results as GenericItem[]).map((item) => (
                     <Card
-                        // key={item[titleKey]}
-                        // size={'large'}
-                        // imgSrc={item[imgSrcKey]}
-                        // imgAlt={item[imgAltKey]}
-                        // title={item[titleKey]}
-                        // linkPath={item[linkPathKey]}
+                        key={item[titleKey]}
+                        size={'large'}
+                        imgSrc={item[imgSrcKey]}
+                        imgAlt={item[imgAltKey]}
+                        title={item[titleKey]}
+                        linkPath={item[linkPathKey]}
                     />
-                {/* )) */}
-            {/* )} */}
+                ))
+                // )
+            }
+
         </GridContainer>
     );
 };

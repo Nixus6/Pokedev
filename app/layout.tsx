@@ -1,10 +1,13 @@
 'use client'
+import { QueryClientProvider, Hydrate } from '@tanstack/react-query';
+import queryClientInstance from '@/lib/queryCLient';
 import './globals.css'
 import type { Metadata } from 'next'
 // import { Inter } from 'next/font/google'
 import { cache } from "@emotion/css"
 import { CacheProvider } from "@emotion/react"
 import Head from 'next/head'
+import { useState } from 'react';
 
 
 // const inter = Inter({ subsets: ['latin'] })
@@ -19,6 +22,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const [queryClient] = useState(queryClientInstance);
   return (
     //   {children}
     <html lang="en">
@@ -27,9 +31,11 @@ export default function RootLayout({
         <title>Pokedev</title>
       </Head>
       <body className='font-mont bg-light w-full min-h-screen'>
-        <CacheProvider value={cache}>
-          {children}
-        </CacheProvider>
+        <QueryClientProvider client={queryClient}>
+          <CacheProvider value={cache}>
+            {children}
+          </CacheProvider>
+        </QueryClientProvider>
       </body>
     </html>
   )

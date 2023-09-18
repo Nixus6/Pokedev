@@ -1,7 +1,7 @@
 'use client'
 import Card from '@/components/ui/organisms/Card/Card'
-import Footer from '@/components/ui/Footer'
-import Header from '@/components/ui/Header'
+import Footer from '@/components/ui/molecules/Footer/Footer'
+import Header from '@/components/ui/molecules/Header/Header'
 import InputLogin from '@/components/ui/InputLogin'
 import React from 'react'
 

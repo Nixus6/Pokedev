@@ -7,7 +7,7 @@ type FooProps = {
     children: ReactNode
 }
 const LayoutStyled = styled.div(
-    tw`w-full h-full inline-block z-0 bg-light p-0`,
+    tw`w-full h-full inline-block z-0 bg-light p-32`,
     // props => `${props.className}`
 )
 

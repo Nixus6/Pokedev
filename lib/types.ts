@@ -14,4 +14,5 @@ export interface PokemonList {
     previous?: string;
     results: Result[] | GenericItem[];
 }
+
 export default PokemonList;
