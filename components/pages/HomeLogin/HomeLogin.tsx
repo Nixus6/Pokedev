@@ -1,19 +1,23 @@
 import { FC } from "react";
 import TemplateHomeIn from '@/components/templates/TemplateHomeIn/TemplateHomeIn';
 import CardLogin from "@/components/ui/organisms/CardLogin/CardLogin";
-interface Props {
-    // pokemonList: InfiniteData<PokemonList>;
-    // hasNextPage: boolean | undefined;
-    // fetchNextPage: (options?: FetchNextPageOptions | undefined) => Promise<InfiniteQueryObserverResult<PokemonList, unknown>>;
-    // handleNextPage: (page: number) => void;
-    // handlePreviousPage: (page: number) => void;
-    // currentPage: number;
+import { messageErrors } from "@/lib/types";
+
+interface LoginType {
+    email: string;
+    password: string;
 }
 
-const HomeLogin: FC<Props> = (): JSX.Element => {
+interface Props {
+    LoginUser: (data: LoginType) => void;
+    messageAmbos: String;
+    messageEmail: String;
+}
+
+const HomeLogin: FC<Props> = ({LoginUser,messageAmbos,messageEmail}): JSX.Element => {
     return (
         <TemplateHomeIn>
-            <CardLogin/>
+            <CardLogin LoginUser={LoginUser} messageAmbos={messageAmbos} messageEmail={messageEmail}/>
         </TemplateHomeIn>
     );
 };

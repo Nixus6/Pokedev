@@ -4,7 +4,6 @@ import PokemonList, { GenericItem } from '@/lib/types';
 import styled from 'styled-components';
 import Card from '../Card/Card';
 import tw from 'twin.macro';
-import usePagination from '@/hook/usePagination';
 
 interface Props {
     list: InfiniteData<PokemonList>;

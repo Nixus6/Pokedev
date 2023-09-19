@@ -8,6 +8,12 @@ export interface Result {
     url: string;
 }
 
+export interface messageErrors {
+    email: String,
+    password: String,
+    ambosCampos: String,
+}
+
 export interface PokemonList {
     count: number;
     next?: string;
